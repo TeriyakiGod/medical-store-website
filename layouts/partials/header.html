@@ -1,0 +1,16 @@
+<header>
+  <div class="container">
+    <a href="/"><img src="{{ `images/logo.png` | relURL }}" /></a>
+    <div class="right-stuff">
+      <nav class="header__nav">
+        <a href="/contact/">İletişim</a>
+      </nav>
+      <div class="instagram">
+        <i class="fab fa-lg fa-instagram"></i>&nbsp;<a
+          href="https://instagram.com/{{ .Site.Params.Instagram }}"
+          >{{ .Site.Params.Instagram }}</a
+        >
+      </div>
+    </div>
+  </div>
+</header>

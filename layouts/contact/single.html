@@ -1,0 +1,31 @@
+{{ define "main" }}
+<main>
+  <div class="container">
+    <h1 style="margin-top: 1.5rem;">{{ .Title }}</h1>
+    <div class="content">
+      {{ .Content }}
+    </div>
+
+    <div class="contact-details">
+      {{ with .Params.address }}
+        <p><i class="fas fa-map-marker-alt"></i> {{ . }}</p>
+      {{ end }}
+      {{ with .Params.phone }}
+        <p><i class="fas fa-phone"></i> <a href="tel:{{ . }}">{{ . }}</a></p>
+      {{ end }}
+      {{ with .Params.whatsapp }}
+        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/{{ replaceRE "[^0-9]" "" . }}" target="_blank" rel="noopener">WhatsApp</a></p>
+      {{ end }}
+      {{ with .Params.email }}
+        <p><i class="fas fa-envelope"></i> <a href="mailto:{{ . }}">{{ . }}</a></p>
+      {{ end }}
+    </div>
+
+    {{ with .Params.map_embed }}
+      <div class="map" style="margin: 1.5rem 0">
+        {{ . | safeHTML }}
+      </div>
+    {{ end }}
+  </div>
+</main>
+{{ end }}

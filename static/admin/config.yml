@@ -27,3 +27,18 @@ collections:
       - { label: "Customer Name", name: "author", widget: "string" }
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Comment", name: "comment", widget: "text" }
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/contact.md"
+        name: "contact"
+        label: "Contact"
+        fields:
+          - { label: "Type", name: "type", widget: "hidden", default: "contact" }
+          - { label: "Title", name: "title", widget: "string", default: "İletişim" }
+          - { label: "Address", name: "address", widget: "text", required: false }
+          - { label: "Phone", name: "phone", widget: "string", required: false }
+          - { label: "Email", name: "email", widget: "string", required: false }
+          - { label: "WhatsApp", name: "whatsapp", widget: "string", required: false }
+          - { label: "Map Embed (HTML)", name: "map_embed", widget: "text", required: false, hint: "Google Maps embed iframe HTML" }
+          - { label: "Body", name: "body", widget: "markdown" }
