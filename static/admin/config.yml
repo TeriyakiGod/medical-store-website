@@ -17,7 +17,7 @@ collections:
       - { label: "Price", name: "price", widget: "number" }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Image", name: "image", widget: "image", required: false }
-      - { label: "Category", name: "category", widget: "select", options: ["Medicine", "Equipment", "Supplies"] }
+      - { label: "Category", name: "categories", widget: "select", options: ["İlaç", "Teçhizat", "Tedarik"] }
   - name: "news"
     label: "News"
     folder: "content/posts"
