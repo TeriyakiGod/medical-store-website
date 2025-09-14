@@ -1,9 +1,9 @@
 ---
-name: Test product
+name: tekerlekli sandalye
 sku: "123"
-price: 12
-description: Test lorem ipsum
-image: /images/uploads/cameleon.jpg
+price: 10000
+description: çok rahat
+image: /images/uploads/collage-2.jpg
 category: Medicine
-categories: İlaç
+categories: Teçhizat
 ---
