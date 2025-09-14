@@ -3,7 +3,7 @@ languageCode = 'tr-TR'
 title = 'Aysima Medikal'
 theme = 'simple-shop'
 enableEmoji = true
-contentDir = content/products
+contentDir = 'content/products'
 [outputs]
   home = ['HTML', 'RSS', 'JSON']
 [params]
