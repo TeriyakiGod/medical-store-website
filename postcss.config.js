@@ -1,8 +1,4 @@
-// postcss.config.js
+const autoprefixer = require("autoprefixer");
 module.exports = {
-  plugins: {
-    'postcss-import': {},
-    'postcss-nested': {},
-    'autoprefixer': {}
-  }
-}
+  plugins: [autoprefixer()],
+};
