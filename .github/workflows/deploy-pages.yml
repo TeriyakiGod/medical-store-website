@@ -17,6 +17,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      HUGO_CACHEDIR: /tmp/hugo_cache
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,18 +27,18 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.135.0'
+          hugo-version: 'latest'
           extended: true
 
       - name: Cache Hugo resources
         uses: actions/cache@v4
         with:
-          path: resources
-          key: ${{ runner.os }}-hugo-${{ hashFiles('**/*') }}
+          path: ${{ env.HUGO_CACHEDIR }}
+          key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
           restore-keys: |
-            ${{ runner.os }}-hugo-
+            ${{ runner.os }}-hugomod-
 
       - name: Clean public folder
         run: rm -rf public
@@ -45,10 +47,10 @@ jobs:
         run: hugo --gc --minify --verbose
 
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./public
 
@@ -60,4 +62,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
