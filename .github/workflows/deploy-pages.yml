@@ -44,7 +44,7 @@ jobs:
         run: rm -rf public
 
       - name: Build site
-        run: hugo --gc --minify --verbose
+        run: hugo --gc --minify
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
