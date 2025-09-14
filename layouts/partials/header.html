@@ -3,12 +3,14 @@
     <a href="/"><img src="{{ `images/logo.png` | relURL }}" /></a>
     <div class="right-stuff">
       <nav class="header__nav">
+        <a href="/">Anasayfa</a>
         <a href="/contact/">İletişim</a>
       </nav>
       <div class="instagram">
+        {{ $ig := (or site.Home.Params.instagram .Site.Params.instagram) }}
         <i class="fab fa-lg fa-instagram"></i>&nbsp;<a
-          href="https://instagram.com/{{ .Site.Params.Instagram }}"
-          >{{ .Site.Params.Instagram }}</a
+          href="https://instagram.com/{{ $ig }}"
+          >{{ $ig }}</a
         >
       </div>
     </div>

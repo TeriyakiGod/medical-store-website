@@ -1,0 +1,47 @@
+{{ define "main" }}
+  <main>
+    {{ partial "collage.html" . }}
+    <section>
+      <h2>{{ with site.Home.Params.products_title }}{{ . }}{{ else }}{{ .Site.Params.Products_title }}{{ end }}</h2>
+      {{ partial "category-selector" . }}
+      <div class="container">
+        <div class="products flex-grid">
+          {{ if eq .Kind "term" }}
+            {{ range where .Pages "Section" "products" }}
+              {{ partial "product.html" .Params }}
+            {{ else }}
+              <p>Bu kategoride ürün bulunamadı.</p>
+            {{ end }}
+          {{ else }}
+            {{ with site.GetPage "section" "products" }}
+              {{ range .RegularPages }}
+                {{ partial "product.html" .Params }}
+              {{ else }}
+                <p>Ürün bulunamadı.</p>
+              {{ end }}
+            {{ else }}
+              <p>Ürün bulunamadı.</p>
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+      <!-- {{ partial "snipcart.html" . }} -->
+    </section>
+    <section>
+      <h2>{{ with site.Home.Params.reviews_title }}{{ . }}{{ else }}{{ .Site.Params.Reviews_title }}{{ end }}</h2>
+      <div class="container">
+        <div class="reviews flex-grid">
+          {{ with site.GetPage "section" "reviews" }}
+            {{ range .RegularPages }}
+              {{ partial "review.html" .Params }}
+            {{ else }}
+              <p>No reviews found.</p>
+            {{ end }}
+          {{ else }}
+            <p>No reviews section.</p>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  </main>
+{{ end }}

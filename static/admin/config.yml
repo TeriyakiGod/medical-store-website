@@ -30,6 +30,18 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
+      - file: "content/_index.md"
+        name: "home"
+        label: "Home"
+        fields:
+          - { label: "Instagram", name: "instagram", widget: "string", required: false }
+          - { label: "Header", name: "header", widget: "string", required: false }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Products Title", name: "products_title", widget: "string", required: false }
+          - { label: "Reviews Title", name: "reviews_title", widget: "string", required: false }
+          - { label: "Not Found Message", name: "not_found", widget: "text", required: false }
+          - { label: "Categories", name: "categories", widget: "list", required: false }
+          - { label: "Collage Images", name: "collage", widget: "list", required: false, hint: "List of image paths (e.g. /images/uploads/...)." }
       - file: "content/contact.md"
         name: "contact"
         label: "Contact"

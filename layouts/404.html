@@ -1,0 +1,24 @@
+{{ define "main" }}
+  <main>
+    {{ partial "collage.html" . }}
+    <section>
+      <h2>{{ with site.Home.Params.products_title }}{{ . }}{{ else }}{{ .Site.Params.Products_title }}{{ end }}</h2>
+      {{ partial "category-selector" . }}
+      <div class="container">
+        <div class="products flex-grid">
+          <p>{{ with site.Home.Params.not_found }}{{ . }}{{ else }}{{ .Site.Params.Not_found }}{{ end }}</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>{{ with site.Home.Params.reviews_title }}{{ . }}{{ else }}{{ .Site.Params.Reviews_title }}{{ end }}</h2>
+      <div class="container">
+        <div class="reviews flex-grid">
+          {{ range .Site.Data.reviews.ByDate }}
+            {{partial "review.html" . }}
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  </main>
+{{ end }}

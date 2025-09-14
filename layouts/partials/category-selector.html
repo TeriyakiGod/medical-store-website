@@ -1,0 +1,8 @@
+<div class="category-wrapper container">
+  {{ $all := "Tüm ürünler" }}
+  {{ $cats := (or site.Home.Params.categories .Site.Params.categories) }}
+  <a class="btn" href="/products/">{{ $all }}</a>
+  {{ range $name := $cats }}
+    <a class="btn" href="/categories/{{ $name | urlize }}/">{{ $name }}</a>
+  {{ end }}
+</div>
