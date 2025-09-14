@@ -1,0 +1,3 @@
+[submodule "themes/simple-shop"]
+	path = themes/simple-shop
+	url = git@github.com:tylersayshi/simple-snipcart-shop.git

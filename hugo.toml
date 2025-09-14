@@ -1,0 +1,7 @@
+baseURL = 'https://teriyakigod.github.io/medical-store-website/'
+languageCode = 'tr-TR'
+title = 'Aysima Medikal'
+theme = 'simple-shop
+enableEmoji = true
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
